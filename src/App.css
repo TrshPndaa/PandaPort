@@ -657,3 +657,152 @@ body {
   left: 0.5rem;
   color: rgba(214, 64, 69, 0.9);
 }
+
+/* modern-button.css */
+
+/* Base Button Styles */
+.modern-button {
+  position: relative;
+  overflow: hidden;
+  padding: 0.75rem 1.5rem;
+  border-radius: 0.75rem;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease-out;
+}
+
+.modern-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+}
+
+/* Variant Styles */
+.modern-button-primary {
+  background: linear-gradient(to right, #10b981, #34d399);
+  color: white;
+}
+
+.modern-button-primary:hover {
+  box-shadow: 0 4px 12px rgba(16, 185, 129, 0.3);
+}
+
+.modern-button-secondary {
+  background: linear-gradient(to right, #8b5cf6, #a78bfa);
+  color: white;
+}
+
+.modern-button-secondary:hover {
+  box-shadow: 0 4px 12px rgba(139, 92, 246, 0.3);
+}
+
+.modern-button-tertiary {
+  background: linear-gradient(to right, #f43f5e, #fb7185);
+  color: white;
+}
+
+.modern-button-tertiary:hover {
+  box-shadow: 0 4px 12px rgba(244, 63, 94, 0.3);
+}
+
+/* Button Text */
+.modern-button-text {
+  position: relative;
+  z-index: 10;
+}
+
+/* Icon Styles */
+.modern-button-icon {
+  position: relative;
+  z-index: 10;
+  transition: transform 0.3s ease;
+}
+
+.modern-button:hover .modern-button-icon {
+  transform: translateX(4px);
+}
+
+/* Shine Effect */
+.modern-button-shine {
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.2),
+    transparent
+  );
+  transition: all 0.5s ease-out;
+}
+
+.modern-button:hover .modern-button-shine {
+  left: 100%;
+}
+
+/* Glow Effect */
+.modern-button-glow {
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: linear-gradient(to right, transparent, rgba(255, 255, 255, 0.1));
+  opacity: 0;
+  filter: blur(8px);
+  transition: opacity 0.3s ease;
+}
+
+.modern-button:hover .modern-button-glow {
+  opacity: 1;
+}
+
+/* Button Sizes and Contexts */
+.nav-item-button {
+  padding: 0.5rem 1rem;
+  font-size: 0.875rem;
+}
+
+.try-now-button {
+  padding: 0.625rem 1.25rem;
+}
+
+.hero-button {
+  width: 100%;
+  justify-content: space-between;
+}
+
+.content-button {
+  margin-top: 1rem;
+}
+
+/* Disabled State */
+.modern-button:disabled {
+  opacity: 0.7;
+  cursor: not-allowed;
+  transform: none;
+}
+
+.modern-button:disabled:hover {
+  box-shadow: none;
+  transform: none;
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+  .modern-button {
+    padding: 0.625rem 1.25rem;
+  }
+  
+  .nav-item-button {
+    width: 100%;
+  }
+}
+
+/* Active State */
+.modern-button:active {
+  transform: translateY(1px);
+}
