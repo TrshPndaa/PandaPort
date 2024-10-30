@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { ChevronRight, X, Menu } from 'lucide-react';
+import { X, Menu } from 'lucide-react';
 import { BrowserRouter as Router, Routes, Route, useNavigate } from 'react-router-dom';
 import "@fontsource/space-grotesk/300.css";
 import "@fontsource/space-grotesk/400.css";
@@ -8,37 +8,7 @@ import "@fontsource/space-grotesk/600.css";
 import "@fontsource/space-grotesk/700.css";
 import './App.css';
 import { InteractiveBubbles } from './components/InteractiveBubbles';
-import ModernButton from './components/modernButton';
-
-// ModernButton Component
-const ModernButton = ({ 
-  text, 
-  onClick, 
-  variant = 'primary', 
-  className = '',
-  disabled = false 
-}) => {
-  return (
-    <button 
-      onClick={onClick}
-      disabled={disabled}
-      className={`modern-button modern-button-${variant} ${className}`}
-      aria-label={text}
-    >
-      <span className="modern-button-text">
-        {text}
-      </span>
-      
-      <ChevronRight 
-        size={18} 
-        className="modern-button-icon"
-      />
-      
-      <div className="modern-button-shine" />
-      <div className="modern-button-glow" />
-    </button>
-  );
-};
+import modernButton from './components/modernButton';
 
 // Navigation Component
 const Navigation = () => {
@@ -178,14 +148,14 @@ const HeroCard = () => {
       <h1 className="hero-title">PandaCharts</h1>
       <div className="hero-content-layout">
         <div className="hero-buttons-container">
-          <ModernButton 
+          <modernButton 
             text="About Us"
             onClick={() => setActiveContent(activeContent === 'about' ? null : 'about')}
             variant="secondary"
             className="hero-button"
           />
 
-          <ModernButton 
+          <modernButton 
             text="Our Benefits"
             onClick={() => setActiveContent(activeContent === 'benefits' ? null : 'benefits')}
             variant="secondary"
@@ -251,7 +221,7 @@ const ContentSection = ({ section }) => {
         ))}
       </ul>
       
-      <ModernButton
+      <modernButton
         text={section.buttonText}
         variant="tertiary"
         className="content-button"

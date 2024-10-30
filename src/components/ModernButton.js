@@ -2,7 +2,7 @@ import React from 'react';
 import { ChevronRight } from 'lucide-react';
 import './modern-button.css';
 
-const ModernButton = ({ 
+const modernButton = ({ 
   text, 
   onClick, 
   variant = 'primary', 
@@ -31,4 +31,4 @@ const ModernButton = ({
   );
 };
 
-export default ModernButton;
+export default modernButton;
