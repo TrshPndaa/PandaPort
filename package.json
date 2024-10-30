@@ -4,7 +4,7 @@
   "predeploy": "npm run build",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https:/TrshPndaa.gi thub.io/PandaPort",
+  "homepage": "https://TrshPndaa.github.io/PandaPort",
   "dependencies": {
     "@fontsource/space-grotesk": "^5.1.0",
     "@testing-library/jest-dom": "^5.17.0",

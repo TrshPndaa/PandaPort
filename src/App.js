@@ -309,7 +309,7 @@ function Home() {
  */
 function App() {
   return (
-    <Router>
+    <Router basename="/PandaPort">
       <Routes>
         <Route path="/" element={<Home />} />
       </Routes>
