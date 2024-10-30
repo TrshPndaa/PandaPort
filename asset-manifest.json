@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/PandaPort/static/css/main.caa4a898.css",
-    "main.js": "/PandaPort/static/js/main.e6102c3a.js",
+    "main.css": "/PandaPort/static/css/main.999ba101.css",
+    "main.js": "/PandaPort/static/js/main.955e900d.js",
     "static/media/space-grotesk-latin-400-normal.woff": "/PandaPort/static/media/space-grotesk-latin-400-normal.a211e01f0870d5a33fb9.woff",
     "static/media/space-grotesk-latin-500-normal.woff": "/PandaPort/static/media/space-grotesk-latin-500-normal.d4e9e9582cd57b0bc500.woff",
     "static/media/space-grotesk-latin-600-normal.woff": "/PandaPort/static/media/space-grotesk-latin-600-normal.fc502deb6809cc2f957a.woff",
@@ -33,11 +33,11 @@
     "static/media/space-grotesk-vietnamese-300-normal.woff2": "/PandaPort/static/media/space-grotesk-vietnamese-300-normal.3954fa80830dce99ed87.woff2",
     "static/media/space-grotesk-vietnamese-700-normal.woff2": "/PandaPort/static/media/space-grotesk-vietnamese-700-normal.10ff5dca77a96baf0cad.woff2",
     "index.html": "/PandaPort/index.html",
-    "main.caa4a898.css.map": "/PandaPort/static/css/main.caa4a898.css.map",
-    "main.e6102c3a.js.map": "/PandaPort/static/js/main.e6102c3a.js.map"
+    "main.999ba101.css.map": "/PandaPort/static/css/main.999ba101.css.map",
+    "main.955e900d.js.map": "/PandaPort/static/js/main.955e900d.js.map"
   },
   "entrypoints": [
-    "static/css/main.caa4a898.css",
-    "static/js/main.e6102c3a.js"
+    "static/css/main.999ba101.css",
+    "static/js/main.955e900d.js"
   ]
 }
