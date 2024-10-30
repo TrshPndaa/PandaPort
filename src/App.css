@@ -657,26 +657,3 @@ body {
   left: 0.5rem;
   color: rgba(214, 64, 69, 0.9);
 }
-
-.content-button {
-  width: fit-content;
-  margin-top: 2rem;
-  padding: 0.75rem 1.5rem;
-  border-radius: 9999px;
-  font-weight: 500;
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  transition: all 0.3s ease;
-}
-
-.content-button-green {
-  background-color: rgba(69, 182, 73, 0.9);
-  color: white;
-}
-
-.content-button-green:hover {
-  background-color: rgba(69, 182, 73, 1);
-  transform: translateY(-2px);
-  box-shadow: 0 4px 12px rgba(69, 182, 73, 0.3);
-}

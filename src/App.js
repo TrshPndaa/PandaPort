@@ -9,12 +9,38 @@ import "@fontsource/space-grotesk/700.css";
 import './App.css';
 import { InteractiveBubbles } from './components/InteractiveBubbles';
 
+// ModernButton Component
+const ModernButton = ({ 
+  text, 
+  onClick, 
+  variant = 'primary', 
+  className = '',
+  disabled = false 
+}) => {
+  return (
+    <button 
+      onClick={onClick}
+      disabled={disabled}
+      className={`modern-button modern-button-${variant} ${className}`}
+      aria-label={text}
+    >
+      <span className="modern-button-text">
+        {text}
+      </span>
+      
+      <ChevronRight 
+        size={18} 
+        className="modern-button-icon"
+      />
+      
+      <div className="modern-button-shine" />
+      <div className="modern-button-glow" />
+    </button>
+  );
+};
 
-/**
- * Navigation component
- * Enhanced navigation with animations and responsive design
- */
-function Navigation() {
+// Navigation Component
+const Navigation = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const navigate = useNavigate();
@@ -65,13 +91,10 @@ function Navigation() {
       </div>
     </nav>
   );
-}
+};
 
-/**
- * Gantt Chart component
- * Displays a Gantt chart with tasks, durations, and progress
- */
-function GanttChart() {
+// GanttChart Component
+const GanttChart = () => {
   const ganttData = [
     { 
       id: 1,
@@ -135,19 +158,18 @@ function GanttChart() {
       </div>
     </div>
   );
-}
+};
 
-/**
- * Hero Card component
- * Renders the main hero section with interactive dropdowns
- */
-function HeroCard() {
+// HeroCard Component
+const HeroCard = () => {
   const [activeContent, setActiveContent] = useState(null);
 
   const handleClose = () => {
     const dropdown = document.querySelector('.hero-dropdown');
-    dropdown.style.animation = 'slideOut 0.3s ease';
-    setTimeout(() => setActiveContent(null), 280);
+    if (dropdown) {
+      dropdown.style.animation = 'slideOut 0.3s ease';
+      setTimeout(() => setActiveContent(null), 280);
+    }
   };
 
   return (
@@ -155,21 +177,19 @@ function HeroCard() {
       <h1 className="hero-title">PandaCharts</h1>
       <div className="hero-content-layout">
         <div className="hero-buttons-container">
-          <button 
-            className="hero-button"
+          <ModernButton 
+            text="About Us"
             onClick={() => setActiveContent(activeContent === 'about' ? null : 'about')}
-          >
-            <span>About Us</span>
-            <ChevronRight size={18} />
-          </button>
-
-          <button 
+            variant="secondary"
             className="hero-button"
+          />
+
+          <ModernButton 
+            text="Our Benefits"
             onClick={() => setActiveContent(activeContent === 'benefits' ? null : 'benefits')}
-          >
-            <span>Our Benefits</span>
-            <ChevronRight size={18} />
-          </button>
+            variant="secondary"
+            className="hero-button"
+          />
         </div>
         
         <div className="hero-dropdown-container">
@@ -213,13 +233,10 @@ function HeroCard() {
       </div>
     </div>
   );
-}
+};
 
-/**
- * Content Section component
- * Renders a content section with a title, description, list of items, and a button
- */
-function ContentSection({ section }) {
+// ContentSection Component
+const ContentSection = ({ section }) => {
   return (
     <div className="content-card">
       <h3 className="content-title">{section.title}</h3>
@@ -233,18 +250,18 @@ function ContentSection({ section }) {
         ))}
       </ul>
       
-      <button className="content-button content-button-green">
-        <span>{section.buttonText}</span>
-        <ChevronRight size={18} />
-      </button>
+      <ModernButton
+        text={section.buttonText}
+        variant="tertiary"
+        className="content-button"
+        onClick={() => {}}
+      />
     </div>
   );
-}
+};
 
-/**
- * Home component containing the main page content
- */
-function Home() {
+// Home Component
+const Home = () => {
   const contentSections = [
     {
       title: 'Master PandaCharts',
@@ -285,7 +302,6 @@ function Home() {
     <div className="min-h-screen">
       <InteractiveBubbles />
       <Navigation />
-
       <div className="hero-section">
         <div className="hero-container">
           <div className="hero-grid">            
@@ -294,7 +310,6 @@ function Home() {
           </div>
         </div>
       </div>
-
       <div className="content-grid">
         {contentSections.map((section, index) => (
           <ContentSection key={index} section={section} />
@@ -302,12 +317,10 @@ function Home() {
       </div>
     </div>
   );
-}
+};
 
-/**
- * Main App component
- */
-function App() {
+// App Component
+const App = () => {
   return (
     <Router basename="/PandaPort">
       <Routes>
@@ -315,6 +328,6 @@ function App() {
       </Routes>
     </Router>
   );
-}
+};
 
 export default App;
