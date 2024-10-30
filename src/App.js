@@ -8,7 +8,6 @@ import "@fontsource/space-grotesk/600.css";
 import "@fontsource/space-grotesk/700.css";
 import './App.css';
 import { InteractiveBubbles } from './components/InteractiveBubbles';
-import './modern-button.css';
 
 
 /**
