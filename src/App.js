@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { X, Menu } from 'lucide-react';
+import { ChevronRight, X, Menu } from 'lucide-react';
 import { BrowserRouter as Router, Routes, Route, useNavigate } from 'react-router-dom';
 import "@fontsource/space-grotesk/300.css";
 import "@fontsource/space-grotesk/400.css";
@@ -8,10 +8,14 @@ import "@fontsource/space-grotesk/600.css";
 import "@fontsource/space-grotesk/700.css";
 import './App.css';
 import { InteractiveBubbles } from './components/InteractiveBubbles';
-import modernButton from './components/modernButton';
+import './components/modern-button.css';
 
-// Navigation Component
-const Navigation = () => {
+
+/**
+ * Navigation component
+ * Enhanced navigation with animations and responsive design
+ */
+function Navigation() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const navigate = useNavigate();
@@ -62,10 +66,13 @@ const Navigation = () => {
       </div>
     </nav>
   );
-};
+}
 
-// GanttChart Component
-const GanttChart = () => {
+/**
+ * Gantt Chart component
+ * Displays a Gantt chart with tasks, durations, and progress
+ */
+function GanttChart() {
   const ganttData = [
     { 
       id: 1,
@@ -129,18 +136,19 @@ const GanttChart = () => {
       </div>
     </div>
   );
-};
+}
 
-// HeroCard Component
-const HeroCard = () => {
+/**
+ * Hero Card component
+ * Renders the main hero section with interactive dropdowns
+ */
+function HeroCard() {
   const [activeContent, setActiveContent] = useState(null);
 
   const handleClose = () => {
     const dropdown = document.querySelector('.hero-dropdown');
-    if (dropdown) {
-      dropdown.style.animation = 'slideOut 0.3s ease';
-      setTimeout(() => setActiveContent(null), 280);
-    }
+    dropdown.style.animation = 'slideOut 0.3s ease';
+    setTimeout(() => setActiveContent(null), 280);
   };
 
   return (
@@ -148,19 +156,21 @@ const HeroCard = () => {
       <h1 className="hero-title">PandaCharts</h1>
       <div className="hero-content-layout">
         <div className="hero-buttons-container">
-          <modernButton 
-            text="About Us"
+          <button 
+            className="hero-button"
             onClick={() => setActiveContent(activeContent === 'about' ? null : 'about')}
-            variant="secondary"
-            className="hero-button"
-          />
+          >
+            <span>About Us</span>
+            <ChevronRight size={18} />
+          </button>
 
-          <modernButton 
-            text="Our Benefits"
-            onClick={() => setActiveContent(activeContent === 'benefits' ? null : 'benefits')}
-            variant="secondary"
+          <button 
             className="hero-button"
-          />
+            onClick={() => setActiveContent(activeContent === 'benefits' ? null : 'benefits')}
+          >
+            <span>Our Benefits</span>
+            <ChevronRight size={18} />
+          </button>
         </div>
         
         <div className="hero-dropdown-container">
@@ -204,10 +214,13 @@ const HeroCard = () => {
       </div>
     </div>
   );
-};
+}
 
-// ContentSection Component
-const ContentSection = ({ section }) => {
+/**
+ * Content Section component
+ * Renders a content section with a title, description, list of items, and a button
+ */
+function ContentSection({ section }) {
   return (
     <div className="content-card">
       <h3 className="content-title">{section.title}</h3>
@@ -221,18 +234,20 @@ const ContentSection = ({ section }) => {
         ))}
       </ul>
       
-      <modernButton
-        text={section.buttonText}
-        variant="tertiary"
-        className="content-button"
-        onClick={() => {}}
-      />
+      <button className="modern-button modern-button-primary content-button">
+        <span className="modern-button-text">{section.buttonText}</span>
+        <ChevronRight size={18} className="modern-button-icon" />
+        <div className="modern-button-shine" />
+        <div className="modern-button-glow" />
+      </button>
     </div>
   );
-};
+}
 
-// Home Component
-const Home = () => {
+/**
+ * Home component containing the main page content
+ */
+function Home() {
   const contentSections = [
     {
       title: 'Master PandaCharts',
@@ -273,6 +288,7 @@ const Home = () => {
     <div className="min-h-screen">
       <InteractiveBubbles />
       <Navigation />
+
       <div className="hero-section">
         <div className="hero-container">
           <div className="hero-grid">            
@@ -281,6 +297,7 @@ const Home = () => {
           </div>
         </div>
       </div>
+
       <div className="content-grid">
         {contentSections.map((section, index) => (
           <ContentSection key={index} section={section} />
@@ -288,10 +305,12 @@ const Home = () => {
       </div>
     </div>
   );
-};
+}
 
-// App Component
-const App = () => {
+/**
+ * Main App component
+ */
+function App() {
   return (
     <Router basename="/PandaPort">
       <Routes>
@@ -299,6 +318,6 @@ const App = () => {
       </Routes>
     </Router>
   );
-};
+}
 
 export default App;
